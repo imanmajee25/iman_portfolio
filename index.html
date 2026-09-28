@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iman Majee | Computer Science Portfolio</title>
+  <meta name="description" content="Iman Majee, BSc Computer Science student at Visva-Bharati, interested in higher studies and research.">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    /* ===== BASIC SETTINGS ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #e4c8c8;
+      color: #263244;
+      line-height: 1.7;
+    }
+
+    :root {
+      --dark: #172033;
+      --text: #475569;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --background: #f8fafc;
+      --accent: #2563eb;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1080px;
+      margin: auto;
+    }
+
+    /* ===== NAVIGATION ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: var(--dark);
+      font-size: 23px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 95px 0;
+      background: #ffffff;
+    }
+
+    .hero-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      color: #475569;
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 17px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: var(--text);
+      margin-bottom: 25px;
+    }
+
+    .photo-frame {
+      width: 245px;
+      height: 285px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #f1f5f9;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-placeholder {
+      text-align: center;
+      color: #94a3b8;
+      padding: 15px;
+    }
+
+    .photo-placeholder i {
+      font-size: 55px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 21px;
+      border: 1px solid var(--dark);
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: #ffffff;
+    }
+
+    .btn-light {
+      color: var(--dark);
+      background: #ffffff;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.85;
+    }
+
+    /* ===== GENERAL SECTIONS ===== */
+    section {
+      padding: 75px 0;
+      scroll-margin-top: 70px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 31px;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 38px;
+    }
+
+    .about-text {
+      max-width: 800px;
+      text-align: center;
+      margin: auto;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .soft-section {
+      background: var(--background);
+    }
+
+    /* ===== EDUCATION ===== */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      font-size: 17px;
+      margin-bottom: 9px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .score {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 4px 11px;
+      border-radius: 5px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill {
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: 9px;
+      background: #ffffff;
+    }
+
+    .skill h3 {
+      color: var(--dark);
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .skill p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ===== PROJECTS ===== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      background: #ffffff;
+    }
+
+    .project-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 4px;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 12px;
+      margin: 3px;
+    }
+
+    /* ===== CAREER GOAL ===== */
+    .goal-box {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    .goal-box i {
+      font-size: 28px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .goal-box h3 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .goal-box p {
+      color: var(--text);
+    }
+
+    /* ===== HOBBIES ===== */
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .hobby {
+      text-align: center;
+      border: 1px solid var(--border);
+      padding: 24px 10px;
+      border-radius: 9px;
+      background: #ffffff;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .hobby i {
+      display: block;
+      color: var(--accent);
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    /* ===== SOCIAL LINKS AND CONTACT ===== */
+    .contact {
+      background: var(--dark);
+      color: #ffffff;
+    }
+
+    .contact .section-title {
+      color: #ffffff;
+    }
+
+    .contact .section-subtitle {
+      color: #cbd5e1;
+    }
+
+    .contact-box {
+      max-width: 650px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-box p {
+      color: #cbd5e1;
+      margin: 12px 0;
+    }
+
+    .contact-box a {
+      color: #bfdbfe;
+      text-decoration: none;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 25px 0;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #64748b;
+      padding: 11px 17px;
+      border-radius: 7px;
+      color: #ffffff !important;
+      font-weight: 600;
+    }
+
+    .social-link i {
+      font-size: 20px;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 750px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        padding: 20px 5%;
+        background: #ffffff;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .photo-frame {
+        width: 190px;
+        height: 220px;
+      }
+
+      .edu-grid,
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hobby-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .edu-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">Iman Majee.</a>
+
+      <button class="menu-btn" id="menuBtn"
+        aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <div class="eyebrow">
+          BSc Computer Science · 2nd Year
+        </div>
+
+        <h1>Hello, I'm Iman Majee</h1>
+
+        <h2>Computer Science Student & Aspiring Researcher</h2>
+
+        <p>
+          I am studying Computer Science at Visva-Bharati.
+          I am interested in programming, algorithms,
+          technology and pursuing higher studies and research.
+        </p>
+
+        <div class="buttons">
+          <a href="#projects" class="btn btn-dark">
+            Explore My Work
+          </a>
+
+          <a href="#contact" class="btn btn-light">
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <!--
+        PHOTO:
+        Put your photograph in the same folder as index.html.
+        Rename it to iman.jpg.
+      -->
+      <div class="photo-frame">
+        <img src="iman.jpg"
+          alt="Portrait of Iman Majee"
+          onerror="this.style.display='none';
+          document.getElementById('photoPlaceholder')
+          .style.display='block';">
+
+        <div class="photo-placeholder"
+          id="photoPlaceholder" style="display:none;">
+          <i class="fa-regular fa-image"></i>
+          <p>Add your photo</p>
+          <small>Save it as iman.jpg</small>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">A little introduction</p>
+
+      <p class="about-text">
+        Hello! I'm <strong>Iman Majee</strong>, a second-year
+        BSc Computer Science student at
+        <strong>Visva-Bharati University</strong>.
+        I am developing my programming and problem-solving
+        skills and exploring areas such as Data Structures,
+        Algorithms and Web Development.
+        My long-term goal is to pursue higher studies
+        and research in Computer Science.
+        Outside academics, I enjoy sketching, singing,
+        recitation and reading.
+      </p>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="soft-section" id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">My academic background</p>
+
+      <div class="edu-grid">
+
+        <div class="card">
+          <h3>BSc Computer Science</h3>
+          <p>Visva-Bharati University</p>
+          <p>Currently in 2nd Year</p>
+          <span class="score">Undergraduate</span>
+        </div>
+
+        <div class="card">
+          <h3>Class 12</h3>
+          <p>Raghunathpur Girls High School</p>
+          <p>Higher Secondary Education</p>
+          <span class="score">92.4%</span>
+        </div>
+
+        <div class="card">
+          <h3>Class 10</h3>
+          <p>Bankura Mission Girls High School</p>
+          <p>Secondary Education</p>
+          <span class="score">93.42%</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">
+        My programming and computer science foundations
+      </p>
+
+      <div class="skills-grid">
+
+        <div class="skill">
+          <h3>C Programming</h3>
+          <p>Functions, arrays, pointers, structures and basic programming.</p>
+        </div>
+
+        <div class="skill">
+          <h3>Python</h3>
+          <p>Programming fundamentals and problem-solving.</p>
+        </div>
+
+        <div class="skill">
+          <h3>HTML & CSS</h3>
+          <p>Web page structure, styling and responsive layouts.</p>
+        </div>
+
+        <div class="skill">
+          <h3>JavaScript</h3>
+          <p>Learning interactive web page development.</p>
+        </div>
+
+        <div class="skill">
+          <h3>Data Structures</h3>
+          <p>Arrays, linked lists, stacks, queues and trees.</p>
+        </div>
+
+        <div class="skill">
+          <h3>Algorithms</h3>
+          <p>Sorting, searching, complexity and algorithm design.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="soft-section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        My academic and personal projects
+      </p>
+
+      <div class="project-grid">
+
+        <div class="project-card">
+          <h3>Student Marksheet Website</h3>
+          <p>
+            A student marksheet application with a web interface
+            for entering and displaying student academic records.
+            Update this description with your completed features.
+          </p>
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">PHP</span>
+        </div>
+
+        <div class="project-card">
+          <h3>Data Structures Programs</h3>
+          <p>
+            A collection of C programs involving linked lists,
+            stacks, queues, trees and common algorithms.
+          </p>
+          <span class="project-tag">C</span>
+          <span class="project-tag">DSA</span>
+        </div>
+
+        <div class="project-card">
+          <h3>Personal Portfolio</h3>
+          <p>
+            A responsive personal website presenting my
+            academic background, skills, interests and projects.
+          </p>
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JavaScript</span>
+        </div>
+
+        <div class="project-card">
+          <h3>Future Research Projects</h3>
+          <p>
+            This section will showcase my future academic
+            projects, research interests and technical work.
+          </p>
+          <span class="project-tag">Coming Soon</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER GOAL -->
+  <section id="goal">
+    <div class="container">
+      <h2 class="section-title">Career Goal</h2>
+      <p class="section-subtitle">
+        My future academic direction
+      </p>
+
+      <div class="goal-box">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h3>Higher Studies & Research</h3>
+        <p>
+          My goal is to deepen my knowledge of Computer Science
+          through higher studies and research. I am interested
+          in strengthening my theoretical understanding,
+          developing analytical skills and exploring new
+          areas of computing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section class="soft-section" id="hobbies">
+    <div class="container">
+      <h2 class="section-title">Beyond Academics</h2>
+      <p class="section-subtitle">
+        My hobbies and interests
+      </p>
+
+      <div class="hobby-grid">
+        <div class="hobby">
+          <i class="fa-solid fa-pencil"></i>
+          Sketching
+        </div>
+
+        <div class="hobby">
+          <i class="fa-solid fa-music"></i>
+          Singing
+        </div>
+
+        <div class="hobby">
+          <i class="fa-solid fa-microphone"></i>
+          Recitation
+        </div>
+
+        <div class="hobby">
+          <i class="fa-solid fa-book-open"></i>
+          Reading
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-subtitle">
+        Feel free to reach out for academic opportunities
+        and collaboration.
+      </p>
+
+      <div class="contact-box">
+
+        <p>
+          Email:
+          <a href="mailto:imanmajee25@gmail.com">
+            imanmajee25@gmail.com
+          </a>
+        </p>
+
+        <p>
+          Phone:
+          <a href="tel:+919339227202">
+            +91 9339227202
+          </a>
+        </p>
+
+        <!-- SOCIAL PROFILE ICONS -->
+        <div class="social-links">
+
+          <a class="social-link"
+            href="https://www.linkedin.com/in/iman-majee-1a9b72416/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile">
+            <i class="fa-brands fa-linkedin"></i>
+            LinkedIn Profile
+          </a>
+
+          <a class="social-link"
+            href="https://github.com/imanmajee25"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile">
+            <i class="fa-brands fa-github"></i>
+            GitHub Profile
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © <span id="year"></span> Iman Majee.
+      All rights reserved.
+    </p>
+    <p>Built with HTML, CSS and JavaScript.</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function() {
+      navLinks.classList.toggle("show");
+    });
+
+    // Close the mobile menu after choosing a section
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        navLinks.classList.remove("show");
+      });
+    });
+
+    // Automatically display the current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
